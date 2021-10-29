@@ -12,9 +12,12 @@ const Greeting = () => {
 
   return (
     <>
-      <h1>Greeting: {greeting}</h1>
+      <h1>
+        Greeting:
+        {greeting}
+      </h1>
     </>
   );
-}
+};
 
 export default Greeting;

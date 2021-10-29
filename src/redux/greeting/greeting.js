@@ -4,8 +4,8 @@ const GET_GREETING_FAILED = 'rails-react-app/greeting/GET_GREETING_FAILED';
 
 const initialState = {
   status: 'awaiting',
-  message: ''
-}
+  message: '',
+};
 
 const getGreetingStarted = () => ({
   type: GET_GREETING_STARTED,
@@ -14,7 +14,7 @@ const getGreetingStarted = () => ({
 export const getGreetingSucceed = (payload) => ({
   type: GET_GREETING_SUCCEED,
   payload,
-})
+});
 
 const getGreetingFailed = (payload) => ({
   type: GET_GREETING_FAILED,
@@ -25,10 +25,10 @@ export const fetchGreeting = () => async (dispatch) => {
   const url = 'https://fierce-citadel-70579.herokuapp.com/greetings';
   dispatch(getGreetingStarted());
   await fetch(url)
-    .then(response => response.json())
-    .then(json => dispatch(getGreetingSucceed(json)))
-    .catch(error => dispatch(getGreetingFailed(error.toString())));
-}
+    .then((response) => response.json())
+    .then((json) => dispatch(getGreetingSucceed(json)))
+    .catch((error) => dispatch(getGreetingFailed(error.toString())));
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -49,11 +49,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         status: 'failed',
         error: action.payload,
-      }
+      };
 
     default:
       return state;
   }
-}
+};
 
 export default reducer;

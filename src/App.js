@@ -2,7 +2,7 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/configureStore';
@@ -12,14 +12,14 @@ import './App.css';
 function App() {
   return (
     <>
-    <Provider store={store}>
-      <Router>
-        <Switch>
-          <Route exact path='/' render={() => <Greeting />} />
-        </Switch>
-      </Router>
-    </Provider>
-  </>
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Route exact path="/" render={() => <Greeting />} />
+          </Switch>
+        </Router>
+      </Provider>
+    </>
   );
 }
 
